@@ -1,0 +1,4 @@
+
+I'm Andrej Tetkic, a developer and creator specializing in creating add-ons for Blender, a well-known 3D graphics software. My work mainly focuses on simplifying the import process for various file types in Blender. One of my key projects is the "Drag & Drop Import" add-on, which allows users to easily import a wide range of file types without having to manually select the file type each time. This tool is designed to make the workflow smoother and save time for 3D artists and animators.
+
+You can find my products on platforms like Blender Market and Gumroad, where they've been well-received by the Blender community.
