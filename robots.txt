@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://andrejtetkic.github.io/sitemap.xml
+
+# Allow crawling of all pages
+Allow: /index.html
+Allow: /parking_tracker.html
+Allow: /drag_drop_import.html
+Allow: /lego_dataset.html
+
+# Allow crawling of assets
+Allow: /styles.css
+Allow: /imgs/

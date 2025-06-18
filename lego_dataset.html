@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>LEGO Dataset Generation Tool - Computer Vision Dataset Creator | Andrej Tetkić</title>
+    <meta name="title" content="LEGO Dataset Generation Tool - Computer Vision Dataset Creator | Andrej Tetkić">
+    <meta name="description" content="High-performance synthetic dataset generation tool for computer vision training using Blender API and OpenCV. Automated dataset creation for machine learning applications.">
+    <meta name="keywords" content="LEGO Dataset, Computer Vision, Machine Learning, Blender API, OpenCV, Dataset Generation, Synthetic Data, Python">
+    <meta name="author" content="Andrej Tetkić">
+    <meta name="robots" content="index, follow">
+      <!-- Canonical URL -->
+    <link rel="canonical" href="https://andrejtetkic.github.io/lego_dataset.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-246RXTP0N0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-246RXTP0N0');
+    </script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>    <!-- Project Detail Header -->
+    <section class="project-detail-header">
+        <div class="container">
+            <a href="#" class="back-link" onclick="goBackToProjects(event)">← Back to Portfolio</a>
+            <h1 class="project-detail-title">LEGO Dataset Generation Tool</h1>
+            <p class="project-detail-subtitle">High-performance synthetic dataset generation for computer vision training</p>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="section">
+        <div class="container">
+            <div class="project-overview">                <div class="project-main-content">
+                    <h3>Project Overview</h3>
+                    <p>Developed a high-performance synthetic dataset generation tool for a client to create training data for LEGO piece recognition systems. The project involved creating realistic 3D scenes where various LEGO pieces are placed on a virtual conveyor belt using physics simulation, then capturing multiple camera angles to generate comprehensive training datasets for computer vision models.</p>
+                    
+                    <p>The challenge was not just generating the data, but optimizing the entire pipeline to achieve maximum throughput while maintaining physical realism and data quality. The system needed to handle hundreds of different LEGO piece models, generate multiple color variations, and capture multiple camera angles at scale.</p>
+                    
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li><strong>Physics-Based Simulation</strong> - Implemented rigid body simulation to ensure gravitationally plausible placement of LEGO pieces on conveyor belt surfaces</li>
+                        <li><strong>Multi-Angle Capture System</strong> - Automated 4-camera setup capturing each scene from different angles for comprehensive dataset coverage</li>
+                        <li><strong>Procedural Color Generation</strong> - Dynamic color variation system generating multiple realistic LEGO color schemes for each piece model</li>
+                        <li><strong>Dual Architecture Support</strong> - Separate optimized versions for CPU-only instances and GPU-accelerated environments</li>
+                        <li><strong>Cloud-Scale Performance</strong> - Achieved 10+ models per second (40+ images/second with 4 angles) through extensive optimization</li>
+                        <li><strong>Batch Processing Pipeline</strong> - Efficient memory management and batch processing to maximize cloud resource utilization</li>
+                        <li><strong>Quality Assurance</strong> - Automated validation to ensure physically realistic scenes and proper lighting conditions</li>
+                        <li><strong>Scalable Infrastructure</strong> - Designed for deployment across Lambda GPU Cloud and AWS instances</li>
+                    </ul>                    <h3>Technical Implementation</h3>
+                    <p>The system was built using Blender's Python API for both physics simulation and rendering pipeline. Blender's rigid body physics engine handled collision detection and realistic settling of LEGO pieces on the conveyor belt surface, ensuring each generated scene was physically plausible. The API allowed for programmatic control of physics parameters, material properties, and scene composition.</p>
+                    
+                    <p>For the rendering pipeline, I leveraged Blender's powerful rendering engine through its Python API, implementing a multi-threaded approach that could efficiently utilize both CPU and GPU resources. The GPU-accelerated version utilized Blender's CUDA support for parallel processing of multiple camera angles, while the CPU version focused on memory optimization and sequential processing efficiency.</p>
+                    
+                    <p>The color generation system used Blender's material system to create realistic LEGO color variations, programmatically sampling from actual LEGO color palettes while ensuring proper material properties and lighting interactions. The multi-camera setup was implemented through Blender's camera objects, carefully calibrated to provide diverse viewpoints while maintaining consistent lighting and depth information.</p>
+                    
+                    <p>OpenCV was integrated for final image processing, handling tasks such as image format conversion, quality validation, compression optimization, and batch processing of rendered outputs. This combination of Blender for 3D operations and OpenCV for image processing created a robust pipeline from 3D scene generation to final dataset preparation.</p>
+
+                    <h3>Performance Optimization</h3>
+                    <p>The optimization phase was the most critical aspect of the project. I implemented several key performance improvements:</p>
+                    <ul>
+                        <li><strong>Memory Pool Management</strong> - Reduced garbage collection overhead by reusing object instances</li>
+                        <li><strong>Batch Rendering</strong> - Grouped similar operations to minimize context switching</li>                        <li><strong>Parallel Processing</strong> - Utilized multi-core architectures and Blender's built-in threading for simultaneous scene generation</li>
+                        <li><strong>GPU Acceleration</strong> - Leveraged Blender's CUDA support and GPU rendering capabilities</li>
+                        <li><strong>I/O Optimization</strong> - Implemented OpenCV-based asynchronous image processing and compressed output formats</li>
+                    </ul>
+
+                    <h3>Challenges & Solutions</h3>
+                    <p>The primary challenge was achieving the required throughput while maintaining quality and physical realism. Initial implementations were producing only 1-2 models per second, far below the client's requirements. Through systematic profiling and optimization, I identified bottlenecks in physics simulation, rendering pipeline, and I/O operations.</p>
+                    
+                    <p>Cloud deployment presented additional challenges with instance initialization time, network bandwidth limitations, and cost optimization. I solved these by implementing efficient instance warm-up procedures, data compression, and intelligent batching strategies that maximized utilization of cloud resources.</p>
+                    
+                    <p>Ensuring consistent quality across different cloud instance types required developing adaptive quality settings that maintained standards while leveraging available hardware capabilities.</p>
+
+                    <h3>Results & Impact</h3>
+                    <p>Successfully delivered a production-ready system that exceeded performance targets, achieving 10+ models per second (40+ images per second) across both CPU and GPU configurations. The generated datasets provided high-quality training data that significantly improved the client's LEGO recognition model accuracy.</p>
+                    
+                    <p>The optimized pipeline reduced dataset generation costs by over 80% compared to initial implementations, making large-scale dataset creation economically viable for the client's computer vision project.</p>
+
+                    <h3>What I Learned</h3>                    <p>This project provided deep experience in high-performance computing, cloud architecture optimization, and the intersection of 3D graphics with machine learning workflows. I gained extensive expertise in Blender's Python API for automated 3D scene generation, physics simulation control, and programmatic rendering pipeline management.</p>
+                    
+                    <p>Working with OpenCV for image processing taught me advanced computer vision techniques, image optimization strategies, and efficient batch processing methods. The combination of Blender and OpenCV created a powerful toolkit for synthetic data generation that I continue to leverage in other projects.</p>
+                    
+                    <p>Working under tight deadlines with specific performance requirements taught me systematic optimization approaches, profiling techniques, and the importance of measuring before optimizing. The project also enhanced my understanding of synthetic data generation for computer vision applications and the challenges of scaling 3D operations in cloud environments.</p>
+
+                    <h3>Technical Achievements</h3>
+                    <p>Achieved a 5-10x performance improvement over initial implementation through systematic optimization, successfully deployed across multiple cloud platforms, and delivered a robust, scalable solution within a compressed timeline of less than one month. The system demonstrated the viability of high-throughput synthetic data generation for specialized computer vision tasks.</p>
+                </div>                <div class="project-sidebar">                    <h4>Project Details</h4>
+                    <p><strong>Duration:</strong> Less than 1 month</p>
+                    <p><strong>Role:</strong> Solo Developer & Optimization Engineer</p>
+                    <p><strong>Team Size:</strong> 1 (Individual project for client)</p>
+                    <p><strong>Status:</strong> Completed & Delivered</p>
+                    <p><strong>Performance:</strong> 10+ models/sec (40+ images/sec)</p>                    <h4>Technologies Used</h4>
+                    <div class="project-tech-list">
+                        <div class="project-tech-item">Python</div>
+                        <div class="project-tech-item">Blender Python API</div>
+                        <div class="project-tech-item">Blender Physics Engine</div>
+                        <div class="project-tech-item">OpenCV</div>
+                        <div class="project-tech-item">Multi-threading</div>
+                        <div class="project-tech-item">Memory Optimization</div>
+                        <div class="project-tech-item">Batch Processing</div>
+                    </div>
+
+                    <h4>Cloud Platforms</h4>
+                    <div class="project-tech-list">
+                        <div class="project-tech-item">Lambda GPU Cloud</div>
+                        <div class="project-tech-item">Amazon Web Services</div>
+                        <div class="project-tech-item">CPU-Only Instances</div>
+                        <div class="project-tech-item">GPU-Accelerated Instances</div>
+                    </div>
+
+                    <h4>Key Metrics</h4>
+                    <div class="project-tech-list">
+                        <div class="project-tech-item">10+ models/second</div>
+                        <div class="project-tech-item">4 camera angles/model</div>
+                        <div class="project-tech-item">Multiple color variations</div>
+                        <div class="project-tech-item">5-10x performance gain</div>
+                        <div class="project-tech-item">80% cost reduction</div>
+                    </div>
+
+                    <h4>External Links</h4>
+                    <div class="project-links" style="flex-direction: column;">
+                        <a href="mailto:andrej.tetkic@gmail.com">Contact Developer</a>
+                        <a href="#" onclick="alert('Code is proprietary - client project')">Proprietary Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+ <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Andrej Tetkić. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function goBackToProjects(event) {
+            event.preventDefault();
+            
+            // Try to go back in browser history first
+            if (document.referrer && document.referrer.includes('index.html')) {
+                window.history.back();
+            } else {
+                // Fallback: navigate to index.html with projects anchor
+                window.location.href = 'index.html#projects';
+            }
+        }
+    </script>
+</body>
+</html>

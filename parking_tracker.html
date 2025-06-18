@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Parking Tracker - IoT Real-time Parking System | Andrej Tetkić</title>
+    <meta name="title" content="Parking Tracker - IoT Real-time Parking System | Andrej Tetkić">
+    <meta name="description" content="Advanced IoT parking tracking system using magnetometer sensors, LoRa communication, and Flutter mobile app. Features real-time availability, turn-by-turn navigation, and cloud-based data management.">
+    <meta name="keywords" content="Parking Tracker, IoT, LoRa, Flutter, Firebase, Magnetometer, Real-time Parking, Mobile App Development, Hardware Design, PCB Design">
+    <meta name="author" content="Andrej Tetkić">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://andrejtetkic.github.io/parking_tracker.html">
+    <meta property="og:title" content="Parking Tracker - IoT Real-time Parking System">
+    <meta property="og:description" content="Advanced IoT parking tracking system using magnetometer sensors, LoRa communication, and Flutter mobile app.">
+    <meta property="og:image" content="https://andrejtetkic.github.io/portfolio/imgs/app_v2.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://andrejtetkic.github.io/parking_tracker.html">
+    <meta property="twitter:title" content="Parking Tracker - IoT Real-time Parking System">
+    <meta property="twitter:description" content="Advanced IoT parking tracking system using magnetometer sensors, LoRa communication, and Flutter mobile app.">
+    <meta property="twitter:image" content="https://andrejtetkic.github.io/portfolio/imgs/app_v2.png">    <!-- Canonical URL -->
+    <link rel="canonical" href="https://andrejtetkic.github.io/parking_tracker.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-246RXTP0N0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-246RXTP0N0');
+    </script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>    <!-- Project Detail Header -->
+    <section class="project-detail-header">
+        <div class="container">
+            <a href="#" class="back-link" onclick="goBackToProjects(event)">← Back to Portfolio</a>
+            <h1 class="project-detail-title">Parking Tracker</h1>
+            <p class="project-detail-subtitle">A system for real-time parking space tracking</p>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="section">
+        <div class="container">
+            <div class="project-overview">
+                <div class="project-main-content">
+                    <h3>Project Overview</h3>
+                    <p>The Parking Tracker project aims to provide a comprehensive solution for real-time monitoring and management of parking spaces. By leveraging advanced sensor technologies and cloud-based data processing, the system enables users to find available parking spots quickly and efficiently.</p>
+                    <p>I oversaw the entire project, including team management, task allocation, and sprint planning using Jira. I developed the core architecture for the mobile application and database, and designed and implemented the complete infrastructure, including creation of the PCB, device casing, wireless communication protocols, and data collection and processing systems.</p>
+
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Real-Time Parking Availability</li>
+                        <li>Search interface for targeting specific locations</li>
+                        <li>Turn-by-turn navigation to selected parking spot</li>
+                        <li>In-app payments for parking (planned/future)</li>
+                        <li>Magnetometer-Based Vehicle Detection</li>
+                        <li>LoRaWAN Communication</li>
+                        <li>Mobile App Functionality</li>
+                        <li>Efficient Power Management</li>
+                        <li>Physical Design Optimization</li>
+                        <li>Gateway Simulations for Testing</li>
+                        <li>Cloud-Based Data Management</li>
+                    </ul>
+
+                    <h3>Technical Implementation</h3>
+                    <p>                        <strong>1. SENSOR DEVICE</strong><br>
+                        <strong>Hardware Components</strong><br>
+                        Magnetometer: QMC5883L (3-axis, 2 mG resolution)<br>
+                        Microcontroller: ATtiny1616 (ultra-low power)<br>
+                        Wireless Module: Ra-01SC (LoRa, 410–525 MHz, SPI)<br>
+                        PCB: 4-layer SMT board (26×38 mm) for minimal EMI, large battery compartment<br>
+                        Power: Long-life battery (5–8.5 years), optimized by periodic wake/sleep cycles<br>
+                        <strong>Circuit Design</strong><br>
+                        I²C between microcontroller and QMC5883L<br>
+                        SPI between microcontroller and LoRa module<br>
+                        PCB optimized with:<br>
+                        - Outer layers for signal traces<br>
+                        - Inner power planes for EMI reduction<br>
+                        Housed in a custom 3D-printed waterproof casing with locking mechanism<br>
+                        <strong>Communication Logic</strong><br>
+                        Sensor samples magnetic field periodically<br>
+                        On state change (free → occupied or vice versa):<br>
+                        Sensor sends: [parking_id, status, battery_level] over LoRa<br>
+                        If no state change occurs, periodic "heartbeat" is sent every few hours<br>
+                    </p>
+
+                    <p>
+                        <strong>2. GATEWAY</strong><br>
+                        Mode: Temporary Single-Channel LoRa Receiver (can later be replaced by full LoRaWAN)<br>
+                        Function:<br>
+                        - Receives LoRa packets from sensors<br>
+                        - Publishes to RabbitMQ message queue for further processing<br>
+                        Stack:<br>
+                        - Implemented using an ESP32<br>
+                        - Connected to the internet to forward data<br>
+                    </p>
+
+                    <p>
+                        <strong>3. BACKEND INFRASTRUCTURE</strong><br>
+                        <strong>Message Broker:</strong><br>
+                        RabbitMQ: Collects raw sensor messages, buffers them<br>
+                        <strong>Data Processing System:</strong><br>
+                        Pulls from RabbitMQ queue<br>
+                        Processes status updates, battery reports<br>
+                        Writes structured updates to Google Firebase Firestore<br>
+                        <strong>Database:</strong><br>
+                        Cloud Firestore (Firebase):<br>
+                        - Stores parking space status<br>
+                        - Real-time synchronization with clients<br>
+                    </p>
+
+                    <p>
+                        <strong>4. MOBILE APPLICATION</strong><br>
+                        <strong>Framework:</strong><br>
+                        Flutter (cross-platform mobile framework)<br>
+                        Integrated with Firebase for:<br>
+                        - Realtime database sync<br>
+                        - User authentication (Google Sign-In)<br>
+                        <strong>Features:</strong><br>
+                        - Map-based UI with real-time markers for parking availability<br>
+                        - GeoFlutterFire used for spatial queries (e.g. nearby free spots)<br>
+                        - Search interface for targeting specific locations<br>
+                        - Turn-by-turn navigation to selected parking spot<br>
+                        - In-app payments for parking (planned/future)<br>
+                    </p>
+
+                    <p>
+                        <strong>5. SIMULATION & TESTING</strong><br>
+                        Due to hardware limitations, a virtual gateway was developed<br>
+                        Simulated:<br>
+                        - 75% occupancy rate<br>
+                        - Average parking session: 1.5 hours<br>
+                        - Live changes in parking status based on simulation inputs<br>
+                    </p>
+
+                    <h3>TECHNICAL CHALLENGES</h3>
+                    <p>
+                        - Signal attenuation from sensors under vehicles (requires additional repeaters or full LoRaWAN coverage)<br>
+                        - Conflict resolution for multiple users targeting the same spot (requires further algorithm development)<br>
+                        - Real-time sync demands (handled via Firebase, but still edge cases possible)<br>
+                    </p>
+
+                    <h3>What I Learned</h3>
+                    <p>
+                        - Improved understanding of LoRa communication and hardware design<br>
+                        - Enhanced skills in backend infrastructure and mobile app development<br>
+                        - Practical experience in real-time data synchronization and cloud-based systems<br>
+                    </p>
+
+                    <h3>Future Improvements</h3>
+                    <p>
+                        - Full LoRaWAN infrastructure<br>
+                        - Expansion to multi-level parking<br>
+                        - Vehicle type detection<br>
+                        - OTA (Over-the-Air) firmware updates<br>
+                        - Improved conflict resolution logic<br>
+                    </p>
+                </div>
+
+                <div class="project-sidebar">
+                    <h4>Project Details</h4>
+                    <p><strong>Duration:</strong> 4 months</p>
+                    <p><strong>Role:</strong> Lead Software & Hardware Developer</p>
+                    <p><strong>Team Size:</strong> 3</p>
+                    <p><strong>Status:</strong> Completed</p>
+
+                    <h4>Technologies Used</h4>
+                    <div class="project-tech-list">
+                        <div class="project-tech-item">Flutter</div>
+                        <div class="project-tech-item">Firebase</div>
+                        <div class="project-tech-item">Google Maps API</div>
+                        <div class="project-tech-item">Node.js</div>
+                        <div class="project-tech-item">JavaScript</div>
+                        <div class="project-tech-item">C</div>
+                        <div class="project-tech-item">Python</div>
+                        <div class="project-tech-item">LoRa Modulation</div>
+                        <div class="project-tech-item">EasyEDA</div>
+                        <div class="project-tech-item">Fusion360</div>
+                    </div>
+
+                    <!-- <h4>External Links</h4>
+                    <div class="project-links" style="flex-direction: column;"> -->
+                        <!-- <a href="[GitHub Repository URL]">View Source Code</a> -->
+                        <!-- <a href="[Live Demo URL]">Live Demo</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    <!-- Project Screenshots/Visuals -->
+    <section class="project-screenshots">
+        <div class="container">
+            <h3>Project Showcase</h3>
+            <div class="screenshot-grid">
+                <div class="screenshot-item" onclick="openLightbox('imgs/app_v2.jpeg', 'Parking Tracker Mobile App Interface')">
+                    <div class="image-container">                        <img src="imgs/app_v2.jpeg" alt="Parking Tracker Mobile App Interface">
+                        <div class="image-overlay">
+                            <span class="zoom-icon">+</span>
+                        </div>
+                    </div>
+                    <div class="screenshot-caption">
+                        Mobile app interface showing real-time parking availability with map-based UI and location search functionality
+                    </div>
+                </div>
+
+                <div class="screenshot-item" onclick="openLightbox('imgs/System_architecture.svg', 'System Architecture Diagram')">                    <div class="image-container">
+                        <img src="imgs/System_architecture.svg" alt="System Architecture Diagram">
+                        <div class="image-overlay">
+                            <span class="zoom-icon">+</span>
+                        </div>
+                    </div>
+                    <div class="screenshot-caption">
+                        Complete system architecture showing data flow from magnetometer sensors through LoRa gateway to cloud infrastructure and mobile app
+                    </div>
+                </div>
+
+                <div class="screenshot-item" onclick="openLightbox('imgs/PCB_alone.jpeg', 'Custom PCB Design')">                    <div class="image-container">
+                        <img src="imgs/PCB_alone.jpeg" alt="Custom PCB Design">
+                        <div class="image-overlay">
+                            <span class="zoom-icon">+</span>
+                        </div>
+                    </div>
+                    <div class="screenshot-caption">
+                        Custom 4-layer SMT PCB design (26×38 mm) optimized for minimal EMI with outer signal traces and inner power planes
+                    </div>
+                </div>
+
+                <div class="screenshot-item" onclick="openLightbox('imgs/PopulatedEnclosure.jpeg', 'Complete Sensor Device')">                    <div class="image-container">
+                        <img src="imgs/PopulatedEnclosure.jpeg" alt="Complete Sensor Device">
+                        <div class="image-overlay">
+                            <span class="zoom-icon">+</span>
+                        </div>
+                    </div>
+                    <div class="screenshot-caption">
+                        Fully assembled sensor device in waterproof 3D-printed casing with QMC5883L magnetometer and LoRa communication module
+                    </div>
+                </div>
+
+                <div class="screenshot-item" onclick="openLightbox('imgs/Schematic_ParkingOccupancyDevice_2025-03-03.png', 'Circuit Schematic')">                    <div class="image-container">
+                        <img src="imgs/Schematic_ParkingOccupancyDevice_2025-03-03.png" alt="Circuit Schematic">
+                        <div class="image-overlay">
+                            <span class="zoom-icon">+</span>
+                        </div>
+                    </div>
+                    <div class="screenshot-caption">
+                        Detailed circuit schematic showing I²C communication between ATtiny1616 microcontroller and magnetometer, plus SPI interface to LoRa module
+                    </div>
+                </div>
+
+                <div class="screenshot-item" onclick="openLightbox('imgs/ReferenceWheel.jpeg', 'Reference Design Comparison')">                    <div class="image-container">
+                        <img src="imgs/ReferenceWheel.jpeg" alt="Reference Design Comparison">
+                        <div class="image-overlay">
+                            <span class="zoom-icon">+</span>
+                        </div>
+                    </div>
+                    <div class="screenshot-caption">
+                        Reference wheel design comparison demonstrating size optimization and component layout efficiency of the parking sensor device
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img id="lightbox-image" src="" alt="">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Andrej Tetkić. All rights reserved.</p>
+        </div>
+    </footer>    <script>
+        function goBackToProjects(event) {
+            event.preventDefault();
+            
+            // Try to go back in browser history first
+            if (document.referrer && document.referrer.includes('index.html')) {
+                window.history.back();
+            } else {
+                // Fallback: navigate to index.html with projects anchor
+                window.location.href = 'index.html#projects';
+            }
+        }
+
+        function openLightbox(imageSrc, caption) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            
+            lightboxImage.src = imageSrc;
+            lightboxImage.alt = caption;
+            lightboxCaption.textContent = caption;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>

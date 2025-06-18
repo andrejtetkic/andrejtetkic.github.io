@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Drag & Drop Import - Professional Blender Addon | Andrej Tetkić</title>
+    <meta name="title" content="Drag & Drop Import - Professional Blender Addon | Andrej Tetkić">
+    <meta name="description" content="Professional Blender addon for streamlined asset importing. Achieved 1000+ sales on BlenderMarket with automated workflow tools for 3D artists and designers.">
+    <meta name="keywords" content="Blender Addon, Drag Drop Import, 3D Modeling, Blender Tools, Asset Import, BlenderMarket, Python Development">
+    <meta name="author" content="Andrej Tetkić">
+    <meta name="robots" content="index, follow">    <!-- Canonical URL -->
+    <link rel="canonical" href="https://andrejtetkic.github.io/drag_drop_import.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-246RXTP0N0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-246RXTP0N0');
+    </script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>    <!-- Project Detail Header -->
+    <section class="project-detail-header">
+        <div class="container">
+            <a href="#" class="back-link" onclick="goBackToProjects(event)">← Back to Portfolio</a>
+            <h1 class="project-detail-title">Drag & Drop Import</h1>
+            <p class="project-detail-subtitle">Streamline your Blender workflow with seamless file importing</p>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="section">
+        <div class="container">
+            <div class="project-overview">                <div class="project-main-content">
+                    <h3>Project Overview</h3>
+                    <p>Drag & Drop Import is a Blender addon designed to optimize workflow efficiency by eliminating the tedious process of navigating through menus and dialogs for file imports. This addon enables users to quickly and easily import files by simply dragging them from their file explorer and dropping them directly into Blender's 3D Viewport or Outliner. The result is a seamless and efficient process that significantly speeds up the creative workflow for 3D artists and developers.</p>
+                    
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li><strong>Universal File Support</strong> - Supports 31+ file types including FBX, GLB, GLTF, OBJ, PNG, JPG, VDB, USD, BLEND, MP4, HDR, EXR, PSD, SKP and many more</li>
+                        <li><strong>Direct Web Import</strong> - Drag and drop images directly from websites or search engines without downloading them first. High-quality originals are automatically imported even from small previews</li>
+                        <li><strong>Advanced Shader Integration</strong> - Drop multiple images directly in the Shader Editor and automatically connect them to desired node sockets</li>
+                        <li><strong>Bulk Operations</strong> - Import multiple files simultaneously or entire folder structures with automatic collection organization</li>
+                        <li><strong>Smart Image Handling</strong> - Contextual menu for importing images as planes, reference images, or background images</li>
+                        <li><strong>Automatic HDRI Setup</strong> - HDR and EXR files are automatically configured as scene HDRIs</li>
+                        <li><strong>VDB Sequence Support</strong> - Handle complex VDB sequences and folder trees containing multiple VDB files</li>
+                        <li><strong>Customizable Import Settings</strong> - Right-click drag or Ctrl+drag to access import options before processing</li>
+                    </ul>
+
+                    <h3>Technical Implementation</h3>
+                    <p>The addon utilizes Blender's Python API to create custom drag-and-drop handlers that intercept file drop events in the 3D Viewport and Outliner. It implements a sophisticated file type detection system that automatically routes different file formats to their appropriate import functions. The system handles multiple monitor setups with different resolutions and maintains compatibility across various Blender versions from 2.93 to 4.2.</p>
+                    
+                    <p>For web imports, the addon implements asynchronous download capabilities that fetch high-resolution images from URLs while maintaining the user interface responsiveness. The shader integration uses node tree manipulation to automatically create and connect image texture nodes to the appropriate sockets based on context.</p>
+
+                    <h3>Challenges & Solutions</h3>
+                    <p>One of the major challenges was ensuring cross-platform compatibility, particularly with macOS systems. The Intel-based Mac version required significant adaptation of the drag-and-drop event handling, while Apple Silicon (M-chip) support presented additional difficulties due to newer architecture and limited library support.</p>
+                    
+                    <p>Another significant challenge was maintaining compatibility across multiple Blender versions, especially with the major UI changes in Blender 4.0. The Principled BSDF node structure changes required API adaptations that had to be version-specific while maintaining backward compatibility.</p>
+                    
+                    <p>Handling web imports posed unique challenges in terms of network reliability, image format detection, and maintaining security while allowing direct downloads from various sources.</p>
+
+                    <h3>Market Success & Impact</h3>
+                    <p>The addon has achieved remarkable commercial success with over 2,200+ sales on Superhive (formerly Blender Market), demonstrating strong market demand for workflow optimization tools. It maintains a high user satisfaction rate with 38+ positive ratings, indicating its effectiveness in solving real workflow pain points for the Blender community.</p>
+                    
+                    <p>The project has established itself as an essential productivity tool for many Blender artists, significantly reducing the time spent on file management tasks and allowing creators to focus more on the creative aspects of their work.</p>
+
+                    <h3>What I Learned</h3>
+                    <p>This project provided deep insights into cross-platform development challenges, particularly the nuances of different operating systems' drag-and-drop implementations. I gained extensive experience with Blender's Python API, learning to work with complex event systems and node manipulation.</p>
+                    
+                    <p>The project also taught valuable lessons about maintaining backward compatibility while supporting new features, version management across multiple Blender releases, and the importance of robust error handling in production addons used by thousands of users.</p>                    <h3>Project Legacy & Discontinuation</h3>
+                    <p>This addon is no longer actively maintained as Blender has implemented native drag-and-drop functionality that covers most of the core features this addon provided. The integration of native drag-and-drop import capabilities into Blender's core functionality represents a successful validation of the concept and user demand that this addon originally addressed.</p>
+                    
+                    <p>While the addon served the community well with over 2,200 sales and helped establish drag-and-drop as an essential workflow feature, the native implementation by the Blender Foundation has made continued development unnecessary. This transition from third-party addon to core feature demonstrates the project's impact on the broader Blender ecosystem and workflow standards.</p>
+                </div>                <div class="project-sidebar">
+                    <h4>Project Details</h4>
+                    <p><strong>Duration:</strong> &lt;1 month initial + 1.5 year maintenance</p>
+                    <p><strong>Role:</strong> Solo Developer & Publisher</p>
+                    <p><strong>Team Size:</strong> 1 (Individual project)</p>
+                    <p><strong>Status:</strong> Published</p>
+                    <p><strong>Sales:</strong> 2,200+ copies sold</p>
+                    <p><strong>Price:</strong> $15 USD</p>
+
+                    <h4>Technologies Used</h4>
+                    <div class="project-tech-list">
+                        <div class="project-tech-item">Python</div>
+                        <div class="project-tech-item">Blender Python API</div>
+                        <div class="project-tech-item">Cross-platform Development</div>
+                        <div class="project-tech-item">Event Handling Systems</div>
+                        <div class="project-tech-item">File System Operations</div>
+                        <div class="project-tech-item">Network Programming</div>
+                        <div class="project-tech-item">UI/UX Design</div>
+                    </div>
+
+                    <h4>Supported Platforms</h4>
+                    <div class="project-tech-list">
+                        <div class="project-tech-item">Windows (Full Support)</div>
+                        <div class="project-tech-item">macOS Intel (Beta)</div>
+                        <div class="project-tech-item">Blender 2.93 - 4.2</div>
+                    </div>
+
+                    <h4>External Links</h4>
+                    <div class="project-links" style="flex-direction: column;">
+                        <a href="https://superhivemarket.com/products/drag-n-drop-import">Superhive Market Page</a>
+                        <a href="https://www.youtube.com/embed/t2vdC9kHY1k">Demo Video</a>
+                        <a href="mailto:andrej.tetkic@gmail.com">Contact Developer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    <!-- Project Screenshots/Visuals -->
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Andrej Tetkić. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function goBackToProjects(event) {
+            event.preventDefault();
+            
+            // Try to go back in browser history first
+            if (document.referrer && document.referrer.includes('index.html')) {
+                window.history.back();
+            } else {
+                // Fallback: navigate to index.html with projects anchor
+                window.location.href = 'index.html#projects';
+            }
+        }
+    </script>
+</body>
+</html>
