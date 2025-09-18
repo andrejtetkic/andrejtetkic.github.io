@@ -5,7 +5,6 @@ A minimalist, black‑themed portfolio showcasing my work as a software develope
 ## About me
 - 4th‑year student and active freelance developer
 - Focused on Python, AI/ML, Blender add‑ons, and IoT systems
-- I care about making as many people happy as I can with useful software - not chasing money
 - I explore new uses of AI and run my own personal research projects
 - Honorable mention at the International AI Olympiad (missed bronze by 0.3/600)
 
@@ -20,7 +19,7 @@ A minimalist, black‑themed portfolio showcasing my work as a software develope
 - LEGO Dataset - ML dataset and CV experiments
 
 ## Links
-- Website: https://andrejtetkic.github.io
+- Website: https://andrejtetkic.github.io (https://tetkic.com)
 - GitHub: https://github.com/andrejtetkic
 - Fiverr: https://www.fiverr.com/andrejtetkic
 - Gumroad: https://gumroad.com/andrejtetkic
