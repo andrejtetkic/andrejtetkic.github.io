@@ -14,6 +14,37 @@ body {
     overflow-x: hidden;
 }
 
+/* Global link styles for dark theme */
+:root {
+    /* Monochrome link palette for dark theme */
+    --link-color: #d0d0d0;           /* light gray by default */
+    --link-hover: #ffffff;           /* white on hover */
+    --link-underline: rgba(255, 255, 255, 0.28);
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: underline;
+    text-decoration-color: var(--link-underline);
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+a:hover {
+    color: var(--link-hover);
+    text-decoration-color: currentColor;
+}
+
+a:visited {
+    color: var(--link-color); /* avoid purple visited color on dark */
+}
+
+a:focus-visible {
+    outline: 2px dashed #aaa;
+    outline-offset: 2px;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -72,7 +103,7 @@ body {
 
 .social-links a {
     color: #fff;
-    text-decoration: none;
+    text-decoration: none; /* keep button look for header links */
     padding: 0.5rem 1rem;
     border: 1px solid #fff;
     border-radius: 3px;
@@ -303,6 +334,13 @@ body {
     border-color: #fff;
 }
 
+/* Emphasize primary action when hovering project card */
+.project-item:hover .project-links a:first-child {
+    background-color: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
 .project-title {
     font-size: 1.3rem;
     margin-bottom: 1rem;
@@ -336,7 +374,7 @@ body {
 
 .project-links a {
     color: #fff;
-    text-decoration: none;
+    text-decoration: none; /* keep button look for project links */
     padding: 0.5rem 1rem;
     border: 1px solid #fff;
     border-radius: 3px;
@@ -403,7 +441,7 @@ body {
 
 .back-link {
     color: #fff;
-    text-decoration: none;
+    text-decoration: none; /* keep button look for back link */
     padding: 0.5rem 1rem;
     border: 1px solid #fff;
     border-radius: 3px;
