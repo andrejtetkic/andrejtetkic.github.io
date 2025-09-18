@@ -721,40 +721,266 @@ address a:hover {
     .project-links {
         flex-direction: column;
     }
+}
 
-    .social-links {
-        flex-direction: column;
-        align-items: center;
-    }
+/* === GitHub Dark–style palette and visible enhancements === */
+:root {
+    --gh-canvas: #0d1117;           /* base background */
+    --gh-canvas-subtle: #161b22;    /* panels/cards */
+    --gh-border: #30363d;           /* borders */
+    --gh-subtle: #8b949e;           /* secondary text */
+    --gh-text: #c9d1d9;             /* primary text */
+    --accent: #58a6ff;              /* subtle accent */
+}
 
-    .project-overview {
-        grid-template-columns: 1fr;
-    }
+/* Base */
+body {
+    background-color: var(--gh-canvas);
+    color: var(--gh-text);
+}
+.header, .project-detail-header { border-bottom: 1px solid var(--gh-border); }
+.section { border-bottom: 1px solid #21262d; }
 
-    .project-detail-title {
-        font-size: 2rem;
-    }
+/* Header visual gradient overlay */
+.header { position: relative; overflow: hidden; }
+.header, .section, .footer, .project-detail-header { position: relative; z-index: 1; }
+.header::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+    /* Blob A - subtle blue, offscreen top-left */
+    radial-gradient(1200px 800px at -20% -10%, rgba(88,166,255,0.10), transparent 66%),
+    /* Blob B - neutral glow, mid-right */
+    radial-gradient(1000px 600px at 120% 40%, rgba(240,246,252,0.04), transparent 62%),
+    /* Blob C - blue, bottom center */
+    radial-gradient(1400px 800px at 50% 120%, rgba(56,139,253,0.08), transparent 64%);
+        filter: blur(42px);
+}
 
-    .screenshot-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .image-container {
-        height: 200px;
-    }
-    
-    .lightbox-content {
-        max-width: 95%;
-        max-height: 95%;
-    }
-    
-    .lightbox-close {
-        top: -30px;
-        font-size: 1.5rem;
-    }
-    
-    #lightbox-image {
-        max-height: 70vh;
-    }
+/* Subtle noise overlay to mitigate gradient banding */
+.header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feComponentTransfer><feFuncA type='table' tableValues='0 0.02'/></feComponentTransfer></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-size: 200px 200px;
+    background-repeat: repeat;
+}
+
+/* Global ultra-subtle noise texture across the whole page */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='nn'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feComponentTransfer><feFuncA type='table' tableValues='0 0.018'/></feComponentTransfer></filter><rect width='100%' height='100%' filter='url(%23nn)'/></svg>");
+    background-size: 220px 220px;
+    background-repeat: repeat;
+    z-index: 0;
+}
+
+/* Alternating subtle section backgrounds for contrast */
+.section:nth-of-type(even) {
+    background-color: var(--gh-canvas-subtle);
+}
+
+/* Typography refinements */
+.hero-content h2 { color: var(--gh-subtle); }
+.hero-content p { color: var(--gh-subtle); }
+.contact-item { color: var(--gh-subtle); }
+.scroll-text { color: var(--gh-subtle); }
+.experience-company, .education-school, .experience-date, .education-date { color: var(--gh-subtle); }
+.experience-description, .project-main-content p, .project-main-content ul, .about-content p { color: var(--gh-subtle); }
+
+/* Section heading accent underline */
+.section h2 { position: relative; }
+.section h2::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 2px;
+    margin: 0.75rem auto 0;
+    background: var(--accent);
+    opacity: 0.7;
+}
+
+/* Cards and surfaces with subtle gradient + shadow */
+.achievement-item, .project-item {
+    border-color: var(--gh-border);
+    background: linear-gradient(180deg, rgba(22,27,34,0.95) 0%, rgba(13,17,23,0.95) 100%);
+    box-shadow: 0 1px 0 rgba(240,246,252,0.04) inset, 0 8px 24px rgba(1,4,9,0.4);
+}
+.achievement-item:hover, .project-item:hover {
+    border-color: var(--gh-text);
+    box-shadow: 0 1px 0 rgba(240,246,252,0.06) inset, 0 12px 32px rgba(1,4,9,0.6);
+}
+.project-sidebar {
+    background-color: var(--gh-canvas-subtle);
+    border: 1px solid var(--gh-border);
+}
+
+/* Tags and chips */
+.tech-tag, .skill-item, .project-tech-item {
+    background-color: #21262d;
+    color: var(--gh-text);
+    border: 1px solid var(--gh-border);
+}
+
+/* Buttons as links */
+.social-links a, .project-links a, .back-link {
+    border-color: var(--gh-text);
+    color: var(--gh-text);
+}
+.social-links a:hover, .project-links a:hover, .back-link:hover {
+    background-color: var(--gh-text);
+    color: var(--gh-canvas);
+}
+
+/* In-text link hover gets accent for visibility (non-button links inherit base a styles) */
+a:hover { color: var(--accent); }
+
+/* Footer subtle text */
+.footer .footer-seo p { color: var(--gh-subtle); }
+
+/* --- Add character across sections --- */
+/* 1) Experience/Education timeline styling (no HTML change) */
+#experience .container,
+#education .container { position: relative; }
+
+#experience .container::before,
+#education .container::before {
+    content: "";
+    position: absolute;
+    left: 14px;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(88,166,255,0.18), rgba(88,166,255,0.03));
+}
+
+.experience-item,
+.education-item {
+    position: relative;
+    padding-left: 2.25rem; /* space for markers */
+}
+
+.experience-item::before,
+.education-item::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 0.35rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    background: radial-gradient(circle at 35% 35%, var(--accent), rgba(88,166,255,0.25));
+    box-shadow: 0 0 0 2px rgba(88,166,255,0.10);
+}
+
+/* 2) Project cards: accent top bar + slight lift on hover */
+.project-item {
+    position: relative;
+    overflow: hidden;
+    will-change: transform;
+    transition: border-color 0.3s ease, transform 0.25s ease;
+}
+.project-item::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.65;
+    transform: scaleX(0.6);
+    transform-origin: left;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+}
+.project-item:hover { transform: translateY(-2px); }
+.project-item:hover::before { transform: scaleX(1); opacity: 0.9; }
+
+/* 3) Achievements: soft halo behind emoji icon */
+.achievement-icon { position: relative; }
+.achievement-icon::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(88,166,255,0.12), transparent 60%);
+    z-index: -1;
+}
+
+/* 4) Skills chips: interactive hover */
+.skill-item {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.skill-item:hover { 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(1,4,9,0.35);
+    border-color: var(--accent);
+}
+
+/* 5) Subtle fade-up on section content with reduced-motion respect */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.section .container > * { animation: fadeUp 0.5s ease both; }
+.section .container > *:nth-child(2) { animation-delay: 40ms; }
+.section .container > *:nth-child(3) { animation-delay: 80ms; }
+.section .container > *:nth-child(4) { animation-delay: 120ms; }
+.section .container > *:nth-child(5) { animation-delay: 160ms; }
+.section .container > *:nth-child(6) { animation-delay: 200ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* 6) Projects section: ultra-subtle dotted texture overlay (very faint) */
+section#projects { position: relative; }
+section#projects::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255,255,255,0.012) 1px, transparent 1.6px);
+  background-size: 22px 22px;
+}
+@media (max-width: 768px) {
+  .social-links {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .project-overview {
+      grid-template-columns: 1fr;
+  }
+
+  .project-detail-title {
+      font-size: 2rem;
+  }
+
+  .screenshot-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+  }
+  
+  .image-container {
+      height: 200px;
+  }
+  
+  .lightbox-content {
+      max-width: 95%;
+      max-height: 95%;
+  }
+  
+  .lightbox-close {
+      top: -30px;
+      font-size: 1.5rem;
+  }
+  
+  #lightbox-image {
+      max-height: 70vh;
+  }
 }
