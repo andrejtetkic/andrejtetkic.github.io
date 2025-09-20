@@ -782,9 +782,29 @@ body::after {
     z-index: 0;
 }
 
-/* Alternating subtle section backgrounds for contrast */
-.section:nth-of-type(even) {
-    background-color: var(--gh-canvas-subtle);
+/* Section ambient backgrounds for variation without repetition */
+.section {
+    background-image:
+      radial-gradient(1200px 800px at var(--blob-x, -15%) var(--blob-y, -20%), rgba(88,166,255,0.06), transparent 60%),
+      linear-gradient(var(--sheen-angle, 180deg), rgba(255,255,255,0.018), rgba(255,255,255,0));
+    background-repeat: no-repeat;
+}
+
+/* Vary ambient blob position and sheen angle per section */
+.section:nth-of-type(1) { --blob-x: -15%; --blob-y: -20%; --sheen-angle: 180deg; }
+.section:nth-of-type(2) { --blob-x: 115%; --blob-y: 30%;  --sheen-angle: 210deg; }
+.section:nth-of-type(3) { --blob-x: 50%;  --blob-y: 120%; --sheen-angle: 150deg; }
+.section:nth-of-type(4) { --blob-x: -20%; --blob-y: 70%;  --sheen-angle: 200deg; }
+.section:nth-of-type(5) { --blob-x: 105%; --blob-y: -10%; --sheen-angle: 170deg; }
+.section:nth-of-type(6) { --blob-x: 15%;  --blob-y: 95%;  --sheen-angle: 190deg; }
+
+/* Subtle divider highlight at top of each section */
+.section::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: -1px; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+    pointer-events: none;
 }
 
 /* Typography refinements */
