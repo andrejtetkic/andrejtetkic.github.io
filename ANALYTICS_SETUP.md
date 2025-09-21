@@ -8,7 +8,7 @@ Your Google Analytics tracking has been successfully implemented across all page
 - ✅ drag_drop_import.html  
 - ✅ lego_dataset.html
 
-## 🌐 Website URL: https://andrejtetkic.github.io/
+## 🌐 Website URL: https://tetkic.com/
 
 Your portfolio will be available directly at your main GitHub Pages URL (no /portfolio subdirectory).
 
@@ -17,7 +17,7 @@ Your portfolio will be available directly at your main GitHub Pages URL (no /por
 ### 1. Deploy to GitHub Pages
 1. Create repository named: **`andrejtetkic.github.io`**
 2. Upload all these files to the root of that repository
-3. GitHub Pages will automatically serve your site at `https://andrejtetkic.github.io/`
+3. GitHub Pages will automatically serve your site at `https://andrejtetkic.github.io/` (now redirected/aliased behind `https://tetkic.com/`).
 
 ### 2. Verify Installation (24-48 hours after deployment)
 1. Go to https://analytics.google.com/
@@ -39,4 +39,4 @@ After deployment, you'll get insights like:
 - Mobile vs desktop usage
 - Time spent on each page
 
-✅ **Status**: Ready for deployment to andrejtetkic.github.io!
+✅ **Status**: Live at tetkic.com (served via GitHub Pages).

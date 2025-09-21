@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">    
     <url>
-        <loc>https://andrejtetkic.github.io/</loc>
+    <loc>https://tetkic.com/</loc>
         <lastmod>2025-06-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://andrejtetkic.github.io/parking_tracker.html</loc>
+    <loc>https://tetkic.com/parking_tracker.html</loc>
         <lastmod>2025-06-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://andrejtetkic.github.io/drag_drop_import.html</loc>
+    <loc>https://tetkic.com/drag_drop_import.html</loc>
         <lastmod>2025-06-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://andrejtetkic.github.io/lego_dataset.html</loc>
+    <loc>https://tetkic.com/lego_dataset.html</loc>
         <lastmod>2025-06-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://andrejtetkic.github.io/research.html</loc>
+    <loc>https://tetkic.com/research.html</loc>
         <lastmod>2025-09-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>

@@ -19,7 +19,7 @@ A minimalist, black‑themed portfolio showcasing my work as a software develope
 - LEGO Dataset - ML dataset and CV experiments
 
 ## Links
-- Website: https://andrejtetkic.github.io (https://tetkic.com)
+- Website: https://tetkic.com (previous: https://andrejtetkic.github.io)
 - GitHub: https://github.com/andrejtetkic
 - Fiverr: https://www.fiverr.com/andrejtetkic
 - Gumroad: https://gumroad.com/andrejtetkic
