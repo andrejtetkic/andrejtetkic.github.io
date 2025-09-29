@@ -95,12 +95,10 @@ a:focus-visible {
 }
 
 /* Inline SVG icons */
-.icon { width: 20px; height: 20px; display: inline-block; vertical-align: -3px; margin-right: 8px; fill: none; stroke: currentColor; stroke-width: 2; }
-/* Mail icon outline */
-.icon-mail rect, .icon-mail polyline { fill: none; stroke: currentColor; stroke-width: 2; }
-/* Pin icon: outline pin with filled center dot */
-.icon-pin path { fill: none; stroke: currentColor; stroke-width: 2; }
-.icon-pin circle { fill: currentColor; stroke: none; }
+/* External SVG contact icons */
+.contact-icon { width: 20px; height: 20px; display: inline-block; vertical-align: -3px; margin-right: 8px; }
+/* Match theme color for monochrome SVGs using filter on dark background */
+.contact-icon { filter: invert(85%) sepia(6%) saturate(0%) hue-rotate(180deg) brightness(95%) contrast(90%); }
 .icon-award { width: 22px; height: 22px; }
 .icon-award circle { fill: none; stroke: currentColor; stroke-width: 2; }
 .icon-award path { fill: none; stroke: currentColor; stroke-width: 2; }
