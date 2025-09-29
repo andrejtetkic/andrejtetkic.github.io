@@ -94,6 +94,14 @@ a:focus-visible {
     color: #ccc;
 }
 
+/* Inline SVG icons */
+.icon { width: 18px; height: 18px; display: inline-block; vertical-align: -3px; margin-right: 8px; fill: currentColor; stroke: none; }
+.icon-pin circle, .icon-mail polyline { fill: none; stroke: currentColor; stroke-width: 2; }
+.icon-mail rect { fill: none; stroke: currentColor; stroke-width: 2; }
+.icon-award { width: 22px; height: 22px; }
+.icon-award circle { fill: none; stroke: currentColor; stroke-width: 2; }
+.icon-award path { fill: none; stroke: currentColor; stroke-width: 2; }
+
 .social-links {
     display: flex;
     justify-content: center;
@@ -922,14 +930,20 @@ a:hover { color: var(--accent); }
 
 /* 3) Achievements: soft halo behind emoji icon */
 .achievement-icon { position: relative; }
+.achievement-icon svg { width: 36px; height: 36px; display: inline-block; }
+.achievement-icon .award-img { width: 56px; height: 56px; display: inline-block; object-fit: contain; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35)); }
 .achievement-icon::after {
     content: "";
     position: absolute;
     inset: -6px;
     border-radius: 999px;
-    background: radial-gradient(circle, rgba(88,166,255,0.12), transparent 60%);
+    background: radial-gradient(circle, rgba(88,166,255,0.20), transparent 60%);
     z-index: -1;
 }
+/* Override halo per award type for better color emphasis */
+.achievement-icon.is-medal::after { background: radial-gradient(circle, rgba(59,130,246,0.16), transparent 60%); }
+.achievement-icon.is-first::after { background: radial-gradient(circle, rgba(255,215,0,0.18), transparent 60%); }
+.achievement-icon.is-trophy::after { background: radial-gradient(circle, rgba(245,158,11,0.18), transparent 60%); }
 
 /* 4) Skills chips: interactive hover */
 .skill-item {
