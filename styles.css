@@ -92,11 +92,13 @@ a:focus-visible {
 .contact-item {
     font-size: 0.9rem;
     color: #ccc;
+    display: inline-flex;
+    align-items: center;
 }
 
 /* Inline SVG icons */
 /* External SVG contact icons */
-.contact-icon { width: 20px; height: 20px; display: inline-block; vertical-align: -3px; margin-right: 8px; }
+.contact-icon { width: 20px; height: 20px; display: inline-block; vertical-align: middle; margin-right: 8px; }
 /* Match theme color for monochrome SVGs using filter on dark background */
 .contact-icon { filter: invert(85%) sepia(6%) saturate(0%) hue-rotate(180deg) brightness(95%) contrast(90%); }
 .icon-award { width: 22px; height: 22px; }
