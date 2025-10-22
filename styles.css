@@ -717,6 +717,14 @@ address a:hover {
     .contact-info {
         flex-direction: column;
         gap: 0.5rem;
+        align-items: center; /* center items horizontally on mobile */
+    }
+
+    /* Ensure each contact row centers its contents on mobile */
+    .contact-item {
+        justify-content: center;
+        text-align: center;
+        width: 100%;
     }
 
     .experience-header {
