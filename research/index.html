@@ -3,15 +3,15 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Research: Minimal World Model Formation | Andrej Tetkić</title>
-	<meta name="description" content="Can an AI model develop a functional world model from a single temporal signal? Research by Andrej Tetkić exploring radical simplification in AI learning architectures." />
+	<title>Research Projects | Andrej Tetkić</title>
+	<meta name="description" content="Exploring novel approaches in AI learning, adaptive interfaces, and biologically-inspired neural architectures." />
 	<meta name="robots" content="index, follow" />
 	<link rel="canonical" href="https://tetkic.com/research/" />
 	<link rel="icon" type="image/x-icon" href="../favicon.ico" />
 	<link rel="stylesheet" href="../styles.css?v=20251101.1" />
-	<meta property="og:type" content="article" />
-	<meta property="og:title" content="Research: Minimal World Model Formation | Andrej Tetkić" />
-	<meta property="og:description" content="Can an AI model develop a functional world model from a single temporal signal? Exploring radical simplification in AI learning." />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Research Projects | Andrej Tetkić" />
+	<meta property="og:description" content="Exploring novel approaches in AI learning, adaptive interfaces, and biologically-inspired neural architectures." />
 	<meta property="og:url" content="https://tetkic.com/research/" />
 	<meta property="og:image" content="https://tetkic.com/imgs/og-image.jpeg" />
 	
@@ -25,218 +25,51 @@
 	</script>
 </head>
 <body>
-	<!-- Hero Section -->
-	<header class="research-hero">
+	<!-- Header -->
+	<section class="project-detail-header">
 		<div class="container">
 			<a href="/" class="back-link">← Back to Home</a>
-			
-			<div class="research-hero-content">
-				<div class="research-label">Current Research Direction</div>
-				<h1 class="research-title">Minimal World Model Formation</h1>
-				<p class="research-question">Can an AI model develop a functional world model from a single temporal signal?</p>
-				
-				<div class="research-summary">
-					<p>Current AI architectures learn from pre-structured data: images, text, audio - all formatted for human understanding. This research explores the opposite extreme: Give a model the minimum possible input (a single value changing over time), embed it in a simulated environment where that value encodes rich dynamics, and see what emerges.</p>
-					<p>The model's world model will be alien - built on its own terms, optimized for its own interaction loop, incomprehensible to us. But if it works at all, it would demonstrate that functional world models can bootstrap from far less structure than we currently assume.</p>
-				</div>
-				
-				<div class="research-status">
-					<span class="status-badge status-theory">Theoretical Framework Complete</span>
-					<span class="status-badge status-implementation">Simulation in Progress</span>
-					<span class="status-badge status-testing">Nothing Tested Yet</span>
-				</div>
-			</div>
+			<h1 class="project-detail-title">Research & Current Projects</h1>
 		</div>
-	</header>
+	</section>
 
 	<main>
-		<!-- Why This Matters -->
-		<section class="section research-section">
+		<!-- Projects Grid -->
+		<section class="section">
 			<div class="container">
-				<h2>Why This Matters</h2>
-				
-				<div class="research-rationale">
-					<p class="lead-text">The goal isn't to build better AI systems today. It's to challenge a fundamental assumption: that models need human-preprocessed, human-structured data to learn effectively.</p>
-					
-					<p>If a model can develop functional world models from a single temporal "energy" signal - no images, no tokens, no labels - then current AI architectures might be solving an artificially constrained problem. We preprocess data for human interpretability, then train models on that preprocessed data, then wonder why they learn human-like representations.</p>
-					
-					<div class="insight-callout">
-						<strong>What if the preprocessing is the bottleneck, not the solution?</strong>
-					</div>
-					
-					<p>This research tests that question at the extreme: minimal signal, maximal learning challenge. If world models emerge here, it suggests we're dramatically underestimating what's possible with less structured approaches.</p>
-				</div>
-			</div>
-		</section>
+				<div class="projects-grid">
+					<!-- Project 1: Latent-Space Bridging -->
+					<a href="latent-space-bridging.html" class="project-item" style="text-decoration: none; color: inherit; display: block;">
+						<h2 class="project-title">Generative Latent-Space Bridging for Adaptive HCI</h2>
+						<p class="project-description">Developing a gradient-free translator for multi-finger gesture typing. Couples frozen Touch and Text VAEs, bridging their latent spaces through vector field dynamics. Target words act as semantic attractors, enabling continuous trajectory decoding and one-shot personalization through magnetic latent interpolation.</p>
+						<div class="project-technologies">
+							<span class="tech-tag">Active Research</span>
+							<span class="tech-tag">HCI</span>
+							<span class="tech-tag">Latent Spaces</span>
+						</div>
+					</a>
 
-		<!-- The Approach -->
-		<section class="section research-section">
-			<div class="container">
-				<h2>The Approach: Radical Simplification</h2>
-				
-				<div class="approach-grid">
-					<div class="approach-card">
-						<div class="approach-icon">→</div>
-						<h3>Input</h3>
-						<h4>Single Temporal Value</h4>
-						<p>Representing "energy at point of perception"</p>
-						<div class="approach-detail">
-							<p>In the simulation, this value encodes the environment's dynamics at the model's location. The environment has complex rules - think physics simulation with emergent phenomena - so the signal carries rich information. But it's not pre-structured.</p>
-							<p><strong>No frames, no tokens, no feature vectors.</strong> Just: value at time <em>t</em>.</p>
+					<!-- Project 2: Elastic Homeostasis -->
+					<a href="elastic-homeostasis.html" class="project-item" style="text-decoration: none; color: inherit; display: block;">
+						<h2 class="project-title">Elastic Homeostasis in Spiking Neural Networks</h2>
+						<p class="project-description">Can learning emerge from adaptive equilibrium points rather than synaptic weights? Testing a novel hypothesis where neurons maintain stable firing patterns but can shift to new equilibria under sustained perturbation. Implemented 100k neuron simulation using homeostatic Izhikevich model.</p>
+						<div class="project-technologies">
+							<span class="tech-tag">Exploratory</span>
+							<span class="tech-tag">Computational Neuroscience</span>
+							<span class="tech-tag">Mixed Results</span>
 						</div>
-					</div>
-					
-					<div class="approach-card">
-						<div class="approach-icon">⟳</div>
-						<h3>Learning Mechanism</h3>
-						<h4>Predictive Coding</h4>
-						<p>With continuous architectural plasticity</p>
-						<div class="approach-detail">
-							<p>The model tries to predict what comes next. Prediction errors drive learning. But critically: the model's internal structure evolves continuously based on its history.</p>
-							<p>The same input at different times can be interpreted completely differently, depending on what world model the model has developed so far.</p>
-							<p><strong>Key constraint:</strong> No human-provided targets, no reward signals, no supervision. The model must discover structure or remain unable to function.</p>
-						</div>
-					</div>
-					
-					<div class="approach-card">
-						<div class="approach-icon">←</div>
-						<h3>Output</h3>
-						<h4>Single Temporal Value</h4>
-						<p>Representing the model's action</p>
-						<div class="approach-detail">
-							<p>This output affects what the model perceives next. The model is embedded in a closed interaction loop:</p>
-							<p class="interaction-loop"><strong>act → perceive consequence → update → act again</strong></p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+					</a>
 
-		<!-- Success Criteria -->
-		<section class="section research-section">
-			<div class="container">
-				<h2>What Success Looks Like</h2>
-				
-				<div class="success-intro">
-					<p>This research succeeds if:</p>
-				</div>
-				
-				<div class="success-criteria">
-					<div class="criterion-item">
-						<div class="criterion-marker"></div>
-						<div class="criterion-content">
-							<h4>The model's prediction error decreases over time</h4>
-							<p>Evidence it's building some internal model</p>
+					<!-- Project 3: Minimal World Models -->
+					<a href="minimal-world-models.html" class="project-item" style="text-decoration: none; color: inherit; display: block;">
+						<h2 class="project-title">Minimal World Model Formation</h2>
+						<p class="project-description">Can an AI develop functional world understanding from a single temporal signal? Challenging the assumption that models need pre-structured data. Testing if world models can bootstrap from one value changing over time through predictive coding and continuous architectural plasticity.</p>
+						<div class="project-technologies">
+							<span class="tech-tag">Theoretical</span>
+							<span class="tech-tag">AI Learning</span>
+							<span class="tech-tag">Simulation in Progress</span>
 						</div>
-					</div>
-					
-					<div class="criterion-item">
-						<div class="criterion-marker"></div>
-						<div class="criterion-content">
-							<h4>The model's actions become systematic</h4>
-							<p>Not random noise, but patterned responses suggesting it's learned environment dynamics</p>
-						</div>
-					</div>
-					
-					<div class="criterion-item">
-						<div class="criterion-marker"></div>
-						<div class="criterion-content">
-							<h4>Internal representations stabilize into structure</h4>
-							<p>Even if we can't interpret them, we should see organization forming</p>
-						</div>
-					</div>
-				</div>
-				
-				<div class="success-note">
-					<p>The model's world model will be <strong>alien</strong> - built on non-human perceptual foundations. Because it perceives through a single temporal value rather than vision, language, or any human sensory modality, it might develop categories and patterns we'd never conceive of. It won't carve reality into "objects" or "spatial relationships" the way vision-based creatures do. Instead, it will organize information in whatever way minimizes prediction error in its specific interaction loop - potentially discovering patterns in the temporal signal that have no names in human experience.</p>
-					<p><em>That's the point.</em> If functional world models can form without human perceptual categories, it proves those categories aren't necessary for intelligence - just for human-interpretable intelligence.</p>
-				</div>
-			</div>
-		</section>
-
-		<!-- Open Questions -->
-		<section class="section research-section">
-			<div class="container">
-				<h2>Open Questions &amp; Challenges</h2>
-				
-				<div class="questions-grid">
-					<div class="question-card">
-						<h4>Information Theory</h4>
-						<p>A single temporal value at one position provides only partial information. But if the model can move and integrate observations over time, it could reconstruct the full environment from sequential glimpses - trading spatial bandwidth for temporal exploration. Does the channel capacity support this?</p>
-						<div class="question-status">Quantifiable and testable</div>
-					</div>
-					
-					<div class="question-card">
-						<h4>Learning Dynamics</h4>
-						<p>How does curiosity work when the model shapes its own input stream? What constitutes exploration vs exploitation when you're both observer and actor?</p>
-						<div class="question-status">Theoretical and empirical</div>
-					</div>
-					
-					<div class="question-card">
-						<h4>Architectural Mechanics</h4>
-						<p>What does "continuous plasticity" mean in implementation? How do we balance stability (maintain useful world models) with adaptability (update based on new information)?</p>
-						<div class="question-status">Implementation challenge</div>
-					</div>
-					
-					<div class="question-card">
-						<h4>Timescale</h4>
-						<p>How long does it take for world models to emerge? Are we talking thousands of timesteps? Millions? Is the learning curve smooth or punctuated?</p>
-						<div class="question-status">Empirical question</div>
-					</div>
-					
-					<div class="question-card">
-						<h4>Verification</h4>
-						<p>If the world model is alien, how do we verify it's functional beyond prediction error metrics? Can we design probes to test for specific capabilities without imposing human structure?</p>
-						<div class="question-status">Methodological challenge</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Current Status -->
-		<section class="section research-section">
-			<div class="container">
-				<h2>Current Status &amp; Next Steps</h2>
-				
-				<div class="status-timeline">
-					<div class="timeline-item status-complete">
-						<div class="timeline-marker"></div>
-						<div class="timeline-content">
-							<h4>Theoretical Framework</h4>
-							<p>Complete (documented here)</p>
-						</div>
-					</div>
-					
-					<div class="timeline-item status-active">
-						<div class="timeline-marker"></div>
-						<div class="timeline-content">
-							<h4>Simulation Environment</h4>
-							<p>In development</p>
-							<ul>
-								<li>Physics-like rules with emergent complexity</li>
-								<li>Single-value interface for model interaction</li>
-								<li>Logging infrastructure to track learning dynamics</li>
-							</ul>
-						</div>
-					</div>
-					
-					<div class="timeline-item status-upcoming">
-						<div class="timeline-marker"></div>
-						<div class="timeline-content">
-							<h4>Next Milestones</h4>
-							<ul>
-								<li>Confirm sufficient information encoding in temporal signal</li>
-								<li>Implement baseline architecture with predictive learning</li>
-								<li>Run extended training, monitor for world model emergence</li>
-								<li>Develop interpretability tools for alien representations</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				
-				<div class="timeline-note">
-					<p><strong>Timeline:</strong> Exploratory research. Could demonstrate feasibility in months, or reveal fundamental barriers.</p>
-					<p><strong>Why nothing is implemented yet:</strong> I competed at the National AI Olympiad, Galaksija Kup, then the International Olympiad in Artificial Intelligence in summer 2025. This research requires sustained, focused implementation time - not something to rush between competitions. I'm prioritizing thinking through the theoretical framework correctly before writing code. Better to delay implementation than to build on shaky foundations.</p>
+					</a>
 				</div>
 			</div>
 		</section>
@@ -252,10 +85,6 @@
 				<a href="/lego-dataset/">LEGO Dataset</a>
 				<a href="mailto:andrej@tetkic.com">Contact</a>
 			</nav>
-			<!-- SEO-friendly footer content -->
-			<div class="footer-seo" style="font-size: 0.8em; margin-top: 1rem; opacity: 0.7;">
-				<p>Personal research by Andrej Tetkić (Andrej Tetkic) exploring minimal world model formation in AI. Investigating how models can learn from single temporal signals without pre-structured data.</p>
-			</div>
 		</div>
 	</footer>
 </body>

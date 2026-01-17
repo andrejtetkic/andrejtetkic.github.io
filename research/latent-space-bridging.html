@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Generative Latent-Space Bridging for Adaptive HCI | Andrej Tetkić</title>
+	<meta name="description" content="Developing a gradient-free universal translator for multi-finger gesture typing through latent space bridging." />
+	<meta name="robots" content="index, follow" />
+	<link rel="canonical" href="https://tetkic.com/research/latent-space-bridging.html" />
+	<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+	<link rel="stylesheet" href="../styles.css?v=20251101.1" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Generative Latent-Space Bridging for Adaptive HCI | Andrej Tetkić" />
+	<meta property="og:description" content="Developing a gradient-free universal translator for multi-finger gesture typing through latent space bridging." />
+	<meta property="og:url" content="https://tetkic.com/research/latent-space-bridging.html" />
+	<meta property="og:image" content="https://tetkic.com/imgs/og-image.jpeg" />
+	
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-246RXTP0N0"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'G-246RXTP0N0');
+	</script>
+</head>
+<body>
+	<!-- Header -->
+	<section class="project-detail-header">
+		<div class="container">
+			<a href="/research/" class="back-link">← Back to Research</a>
+			<h1 class="project-detail-title">Generative Latent-Space Bridging for Adaptive HCI</h1>
+			<p class="project-detail-subtitle">Gradient-free gesture typing through latent space dynamics</p>
+		</div>
+	</section>
+
+	<main>
+		<!-- Abstract -->
+		<section class="section">
+			<div class="container">
+				<div class="project-overview">
+					<div class="project-main-content">
+						<h3>Abstract</h3>
+						<p>Traditional gesture typing systems require extensive training data and gradient-based optimization. This research explores a fundamentally different approach: freeze pre-trained VAE encoders for touch trajectories and text, then bridge their latent spaces using vector field dynamics instead of neural networks.</p>
+						
+						<p>The key innovation is treating continuous swipe trajectories as paths through latent space, where target words act as semantic "attractors" that guide trajectory interpretation. No backpropagation, no neural networks in the coupling layer - just vector field updates that map motion patterns to meaning.</p>
+
+						<h3>Core Architecture</h3>
+						<p><strong>Touch VAE (Frozen):</strong> Encodes multi-finger touch trajectories into continuous latent space. Pre-trained on gesture data to capture motion patterns and temporal dynamics.</p>
+						
+						<p><strong>Vector Field Coupling:</strong> The only trainable component. Maps from touch latent space to text latent space using gradient-free vector field updates. No neural networks - just learned vector fields that define how to translate between the two spaces.</p>
+						
+						<p><strong>Text VAE (Frozen):</strong> Decodes text latent vectors into words. Pre-trained to understand semantic relationships.</p>
+
+						<h3>Continuous Trajectory Decoding</h3>
+						<p>Instead of segmenting input into discrete words, the system treats the entire swipe as a continuous path through semantic space. Target words function as semantic attractors - as your finger traces a path, the system performs path integration, continuously updating which words you're moving toward based on trajectory dynamics.</p>
+
+						<h3>One-Shot Adaptation: Magnetic Latent Interpolation</h3>
+						<p>When a user demonstrates a gesture once, the system captures both the motion pattern and intended meaning in latent space, creating a "magnetic attractor" at that location. Future similar gestures are pulled toward this example's interpretation. The system learns by example placement rather than gradient descent - adapting to individual users from a handful of corrections.</p>
+
+						<h3>Current Status</h3>
+						<p><strong>Architecture:</strong> Designed and validated theoretically</p>
+						<p><strong>VAE Training:</strong> Touch and Text VAEs in progress</p>
+						<p><strong>Next Steps:</strong> Implement vector field coupling, test path integration system, prototype adaptive interface</p>
+						
+						<h3>Related Links</h3>
+						<p><em>Repository and documentation coming soon</em></p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<div class="container">
+			<p>&copy; 2025 Andrej Tetkić. All rights reserved.</p>
+			<nav aria-label="Footer navigation">
+				<a href="/">Home</a>
+				<a href="/research/">Research</a>
+				<a href="/parking-tracker/">Parking Tracker</a>
+				<a href="/drag-drop-import/">Drag & Drop Import</a>
+				<a href="/lego-dataset/">LEGO Dataset</a>
+				<a href="mailto:andrej@tetkic.com">Contact</a>
+			</nav>
+		</div>
+	</footer>
+</body>
+</html>

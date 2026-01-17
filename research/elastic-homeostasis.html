@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Elastic Homeostasis in Spiking Neural Networks | Andrej Tetkić</title>
+	<meta name="description" content="Investigating whether learning can emerge from adaptive equilibrium points rather than synaptic weights in neural networks." />
+	<meta name="robots" content="index, follow" />
+	<link rel="canonical" href="https://tetkic.com/research/elastic-homeostasis.html" />
+	<link rel="icon" type="image/x-icon" href="../favicon.ico" />
+	<link rel="stylesheet" href="../styles.css?v=20251101.1" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Elastic Homeostasis in Spiking Neural Networks | Andrej Tetkić" />
+	<meta property="og:description" content="Investigating whether learning can emerge from adaptive equilibrium points rather than synaptic weights." />
+	<meta property="og:url" content="https://tetkic.com/research/elastic-homeostasis.html" />
+	<meta property="og:image" content="https://tetkic.com/imgs/og-image.jpeg" />
+	
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-246RXTP0N0"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'G-246RXTP0N0');
+	</script>
+</head>
+<body>
+	<!-- Header -->
+	<section class="project-detail-header">
+		<div class="container">
+			<a href="/research/" class="back-link">← Back to Research</a>
+			<h1 class="project-detail-title">Elastic Homeostasis in Spiking Neural Networks</h1>
+			<p class="project-detail-subtitle">Learning from equilibrium shifts rather than weight updates</p>
+		</div>
+	</section>
+
+	<main>
+		<!-- Abstract -->
+		<section class="section">
+			<div class="container">
+				<div class="project-overview">
+					<div class="project-main-content">
+						<h3>Abstract</h3>
+						<p>Can learning emerge from adaptive equilibrium points rather than synaptic weights? This project tests a novel hypothesis: <strong>elastic homeostasis</strong> - where neurons maintain stable firing patterns through local regulation, but significant perturbations can permanently shift them to new equilibrium states.</p>
+						
+						<p>Unlike strict homeostasis (which always returns to the original state) or pure plasticity (which changes freely), elastic homeostasis proposes that small perturbations are corrected back to the current equilibrium, while large perturbations push the neuron past a threshold into a new stable state. Learning emerges as the accumulation of these equilibrium shifts.</p>
+
+						<h3>The Core Question</h3>
+						<p>Traditional neural networks learn through global error signals (backpropagation), while biological neurons rely on local chemical signals. Most bio-inspired models focus on synaptic plasticity (Hebbian learning, STDP). This project asks: <strong>Can learning emerge from adaptive equilibrium points rather than adaptive connection weights?</strong></p>
+
+						<h3>The Mechanism</h3>
+						<p>Built on the Izhikevich spiking neuron model, adding homeostatic parameter adaptation:</p>
+						
+						<p><strong>Standard Model:</strong> Four parameters (a, b, c, d) control neuron firing behavior<br>
+						<strong>Elastic Extension:</strong> Parameters slowly adapt based on deviation from target membrane potential</p>
+						
+						<p style="margin-top: 1rem;">When membrane potential v > target → Parameters shift to reduce excitability<br>
+						When v < target → Parameters shift to increase excitability<br>
+						Slow adaptation rate (ε = 10⁻⁵) filters transients; sustained inputs shift equilibrium</p>
+
+						<h3>Implementation & Results</h3>
+						<p><strong>Scale:</strong> 100,000 neuron simulation with spatial organization (20×20×20 grid)<br>
+						<strong>Success:</strong> Single-neuron regulation works - parameters adapt to maintain target activity<br>
+						<strong>Challenge:</strong> Network-level learning failed to emerge in behavioral tasks (Pong test)</p>
+
+						<h3>Key Limitation Identified</h3>
+						<p>Post-implementation analysis revealed a fundamental issue: <strong>linear dynamics prevent true equilibrium shifts</strong>. The current formulation lacks non-linear terms necessary for genuine bistability. Without non-linear restoring forces creating distinct attractor basins, the system maps input to parameters linearly rather than exhibiting true multiple equilibria.</p>
+
+						<h3>What Worked</h3>
+						<ul>
+							<li>Conceptual proof: Local homeostatic rules can be implemented computationally</li>
+							<li>Filtering behavior: Slow adaptation successfully filters rapid transients</li>
+							<li>Scalability: Successfully simulated 100k neurons with spatial organization</li>
+						</ul>
+
+						<h3>What Didn't</h3>
+						<ul>
+							<li>No emergent task learning in behavioral tests</li>
+							<li>Runaway excitation in networks</li>
+							<li>Linear dynamics - no true attractor basins</li>
+							<li>Timescale mismatches between adaptation and task demands</li>
+						</ul>
+
+						<h3>Future Directions</h3>
+						<p>The hypothesis remains valid but needs reformulation. Next steps:</p>
+						<ul>
+							<li><strong>Non-linear dynamics:</strong> Polynomial/exponential restoring forces to create genuine attractor basins</li>
+							<li><strong>Potential function formulation:</strong> Define energy landscape with local minima</li>
+							<li><strong>Explicit threshold gating:</strong> Clear transitions between homeostatic modes</li>
+							<li><strong>Simpler test cases:</strong> 2-3 neuron systems before scaling to networks</li>
+						</ul>
+
+						<h3>Educational Value</h3>
+						<p>This project demonstrates: novel hypothesis formation, computational neuroscience implementation, recognizing theoretical flaws, and planning refinements. The mixed results highlight important lessons about the relationship between mathematical formulation and conceptual ideas.</p>
+
+						<h3>Status</h3>
+						<p><strong>September 2024:</strong> Initial implementation complete<br>
+					<strong>Current:</strong> Not actively developed - might be worth revisiting with reformulated approach<br>
+					<strong>Repository:</strong> <a href="https://github.com/andrejtetkic/NeuroEvolution" target="_blank">github.com/andrejtetkic/NeuroEvolution</a></p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<div class="container">
+			<p>&copy; 2025 Andrej Tetkić. All rights reserved.</p>
+			<nav aria-label="Footer navigation">
+				<a href="/">Home</a>
+				<a href="/research/">Research</a>
+				<a href="/parking-tracker/">Parking Tracker</a>
+				<a href="/drag-drop-import/">Drag & Drop Import</a>
+				<a href="/lego-dataset/">LEGO Dataset</a>
+				<a href="mailto:andrej@tetkic.com">Contact</a>
+			</nav>
+		</div>
+	</footer>
+</body>
+</html>

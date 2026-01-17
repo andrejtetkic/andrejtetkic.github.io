@@ -1163,6 +1163,115 @@ section#projects::before {
     padding: 5rem 0;
 }
 
+/* Project Cards Grid - Research Portfolio */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.project-card {
+    background: linear-gradient(180deg, rgba(22,27,34,0.95) 0%, rgba(13,17,23,0.95) 100%);
+    border: 1px solid var(--gh-border);
+    border-radius: 8px;
+    padding: 2.5rem;
+    text-decoration: none;
+    display: block;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0;
+    transform: scaleX(0.5);
+    transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: 0 16px 40px rgba(88,166,255,0.2);
+}
+
+.project-card:hover::before {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.project-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.project-card h2 {
+    font-size: 1.5rem;
+    color: var(--gh-text);
+    margin-bottom: 1.25rem;
+    line-height: 1.3;
+    font-weight: 500;
+}
+
+.project-card .project-description {
+    color: var(--gh-subtle);
+    line-height: 1.7;
+    margin-bottom: 1.75rem;
+    font-size: 0.95rem;
+}
+
+.project-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.project-domain {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    font-weight: 400;
+}
+
+.project-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    padding-left: 0.5rem;
+}
+
+.project-highlights span {
+    position: relative;
+}
+
+.project-highlights span::before {
+    content: "";
+    position: absolute;
+    left: -0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 12px;
+    background: var(--accent);
+    opacity: 0.4;
+}
+
 .research-rationale {
     max-width: 850px;
     margin: 0 auto;
