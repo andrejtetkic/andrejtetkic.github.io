@@ -3,15 +3,15 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Generative Latent-Space Bridging for Adaptive HCI | Andrej Tetkić</title>
-	<meta name="description" content="Developing a gradient-free universal translator for multi-finger gesture typing through latent space bridging." />
+	<title>Continuous Manifold Alignment via Dual VAEs | Andrej Tetkić</title>
+	<meta name="description" content="Reformulating continuous trajectory translation as an online geometric regression problem using frozen Dual VAEs and linear-complexity path integration." />
 	<meta name="robots" content="index, follow" />
 	<link rel="canonical" href="https://tetkic.com/research/latent-space-bridging.html" />
 	<link rel="icon" type="image/x-icon" href="../../favicon.ico" />
 	<link rel="stylesheet" href="../../styles.css?v=20251101.1" />
 	<meta property="og:type" content="article" />
-	<meta property="og:title" content="Generative Latent-Space Bridging for Adaptive HCI | Andrej Tetkić" />
-	<meta property="og:description" content="Developing a gradient-free universal translator for multi-finger gesture typing through latent space bridging." />
+	<meta property="og:title" content="Continuous Manifold Alignment via Dual VAEs | Andrej Tetkić" />
+	<meta property="og:description" content="Reformulating continuous trajectory translation as an online geometric regression problem using frozen Dual VAEs and linear-complexity path integration." />
 	<meta property="og:url" content="https://tetkic.com/research/latent-space-bridging.html" />
 	<meta property="og:image" content="https://tetkic.com/imgs/og-image.jpeg" />
 	
@@ -29,8 +29,8 @@
 	<section class="project-detail-header">
 		<div class="container">
 			<a href="/research/" class="back-link">← Back to Research</a>
-			<h1 class="project-detail-title">Generative Latent-Space Bridging for Adaptive HCI</h1>
-			<p class="project-detail-subtitle">Gradient-free gesture typing through latent space dynamics</p>
+			<h1 class="project-detail-title">Continuous Manifold Alignment via Dual VAEs</h1>
+			<p class="project-detail-subtitle">A Zero-Forgetting Framework for Continuous Geometric Regression</p>
 		</div>
 	</section>
 
@@ -40,31 +40,28 @@
 			<div class="container">
 				<div class="project-overview">
 					<div class="project-main-content">
-						<h3>Abstract</h3>
-						<p>Traditional gesture typing systems require extensive training data and gradient-based optimization. This research explores a fundamentally different approach: freeze pre-trained VAE encoders for touch trajectories and text, then bridge their latent spaces using vector field dynamics instead of neural networks.</p>
+						<h3>The Core Concept</h3>
+						<p>Traditional gesture recognition systems treat input as a rigid, discrete classification task. This project fundamentally reformulates continuous user interaction as an <strong>online geometric regression problem</strong> between two high-dimensional latent manifolds. By abandoning discrete spatial mappings, the system translates unsegmented, free-form spatiotemporal trajectories directly into a continuous linguistic space.</p>
 						
-						<p>The key innovation is treating continuous swipe trajectories as paths through latent space, where target words act as semantic "attractors" that guide trajectory interpretation. No backpropagation, no neural networks in the coupling layer - just vector field updates that map motion patterns to meaning.</p>
+						<h3>Architectural Innovations</h3>
+						<p>Designed to run deterministically on edge computing devices, this framework introduces three core machine learning contributions:</p>
 
-						<h3>Core Architecture</h3>
-						<p><strong>Touch VAE (Frozen):</strong> Encodes multi-finger touch trajectories into continuous latent space. Pre-trained on gesture data to capture motion patterns and temporal dynamics.</p>
+						<ul>
+							<li style="margin-bottom: 1rem;"><strong>Frozen Dual-VAE Pipeline:</strong> Representation learning is completely decoupled from user adaptation. A Spatio-Geometric CNN-VAE encodes position-invariant polar touch frames, while a Recurrent Linguistic VAE maps sub-word n-grams. Both spaces are frozen to establish geometrically stable topologies.</li>
+							<li style="margin-bottom: 1rem;"><strong>Linear-Complexity Temporal Path Integration:</strong> Standard temporal architectures (RNNs, deep signatures) introduce latency or scale exponentially. This architecture utilizes a custom, continuous path-integral transformation modulated by a static harmonic basis. It summarizes variable-length trajectory matrices into a fixed-dimensional vector with a strict linear complexity of <i>O(N &middot; D)</i>.</li>
+							<li style="margin-bottom: 1rem;"><strong>Zero-Forgetting Non-Parametric Adaptation:</strong> To map inputs across the two latent spaces without triggering catastrophic forgetting during fine-tuning, the framework uses a dynamic k-NN Ball Tree database. It employs an offset-stabilized Inverse Distance Weighting (IDW) interpolation, creating a self-correcting, "magnetic" mapping that allows for instant, one-shot personalization.</li>
+						</ul>
+
+						<h3 style="margin-top: 2rem;">Read the Paper</h3>
+						<p>Explore the mathematical formulation, signal preprocessing techniques, and component-level validation in the embedded paper below.</p>
 						
-						<p><strong>Vector Field Coupling:</strong> The only trainable component. Maps from touch latent space to text latent space using gradient-free vector field updates. No neural networks - just learned vector fields that define how to translate between the two spaces.</p>
-						
-						<p><strong>Text VAE (Frozen):</strong> Decodes text latent vectors into words. Pre-trained to understand semantic relationships.</p>
-
-						<h3>Continuous Trajectory Decoding</h3>
-						<p>Instead of segmenting input into discrete words, the system treats the entire swipe as a continuous path through semantic space. Target words function as semantic attractors - as your finger traces a path, the system performs path integration, continuously updating which words you're moving toward based on trajectory dynamics.</p>
-
-						<h3>One-Shot Adaptation: Magnetic Latent Interpolation</h3>
-						<p>When a user demonstrates a gesture once, the system captures both the motion pattern and intended meaning in latent space, creating a "magnetic attractor" at that location. Future similar gestures are pulled toward this example's interpretation. The system learns by example placement rather than gradient descent - adapting to individual users from a handful of corrections.</p>
-
-						<h3>Current Status</h3>
-						<p><strong>Architecture:</strong> Designed and validated theoretically</p>
-						<p><strong>VAE Training:</strong> Touch and Text VAEs in progress</p>
-						<p><strong>Next Steps:</strong> Implement vector field coupling, test path integration system, prototype adaptive interface</p>
-						
-						<h3>Related Links</h3>
-						<p><em>Repository and documentation coming soon</em></p>
+						<!-- PDF Embed Wrapper -->
+						<div style="margin-top: 1.5rem; border: 1px solid #ccc; border-radius: 8px; overflow: hidden; height: 800px;">
+							<!-- REPLACE "path/to/your/paper.pdf" with the actual path to your PDF file -->
+							<iframe src="./A Layout-Free Text Input Topology___ML.pdf" width="100%" height="100%" style="border: none;" title="Layout-Free Text Input Topology Paper">
+								<p>Your browser does not support PDFs. <a href="./A Layout-Free Text Input Topology___ML.pdf">Download the PDF</a>.</p>
+							</iframe>
+						</div>
 					</div>
 				</div>
 			</div>
