@@ -293,13 +293,17 @@ a:focus-visible {
     margin-top: 2rem;
 }
 
+.achievement-item + .achievement-item {
+    margin-top: 0.25rem;
+}
+
 .achievement-item {
     display: grid;
     grid-template-columns: 64px minmax(0, 1fr) auto;
     gap: 1.25rem;
     align-items: center;
     border: 1px solid #333;
-    padding: 1.25rem 1.5rem;
+    padding: 1.35rem 1.65rem;
     border-radius: 8px;
     text-align: left;
     transition: border-color 0.3s ease, transform 0.3s ease;
