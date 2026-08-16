@@ -1,6 +1,6 @@
 # Andrej Tetkić - Portfolio
 
-A minimalist, black‑themed portfolio showcasing my work as a software developer and AI/ML practitioner from Novi Sad, Serbia. I build practical tools and systems people enjoy using - from Blender add‑ons and IoT devices to AI‑powered software.
+A minimalist, black‑themed portfolio showcasing my work as a software developer and AI/ML practitioner from Eindhoven, Netherlands. I build practical tools and systems people enjoy using - from Blender add‑ons and IoT devices to AI‑powered software.
 
 ## About me
 - 4th‑year student and active freelance developer
