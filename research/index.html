@@ -8,7 +8,7 @@
 	<meta name="robots" content="index, follow" />
 	<link rel="canonical" href="https://tetkic.com/research/" />
 	<link rel="icon" type="image/x-icon" href="../favicon.ico" />
-	<link rel="stylesheet" href="../styles.css?v=20251101.1" />
+	<link rel="stylesheet" href="../styles.css?v=20260823.1" />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Research Projects | Andrej Tetkić" />
 	<meta property="og:description" content="Exploring novel approaches in AI learning, adaptive interfaces, and biologically-inspired neural architectures." />
@@ -39,7 +39,7 @@
 			<div class="container">
 				<div class="projects-grid">
 					<!-- Project 1: Latent-Space Bridging -->
-					<a href="latent-space-bridging/" class="project-item" style="text-decoration: none; color: inherit; display: block;">
+					<div class="project-item" style="position: relative;">
 						<h2 class="project-title">Continuous Manifold Alignment via Dual VAEs</h2>
 						<p class="project-description">Reformulating continuous trajectory translation as an online geometric regression problem. This framework bridges two latent manifolds using frozen Dual VAEs and a novel <i>O(N &middot; D)</i> temporal path integration algorithm to eliminate catastrophic forgetting.</p>
 						<div class="project-technologies">
@@ -47,10 +47,14 @@
 							<span class="tech-tag">Representation Learning</span>
 							<span class="tech-tag">Manifold Alignment</span>
 						</div>
-					</a>
+						<div class="project-links" style="position: relative; z-index: 2;">
+							<a href="latent-space-bridging/">More Info</a>
+						</div>
+						<a href="latent-space-bridging/" style="position: absolute; inset: 0; z-index: 1;" aria-label="View Continuous Manifold Alignment via Dual VAEs project"></a>
+					</div>
 
 					<!-- Project 2: Elastic Homeostasis -->
-					<a href="elastic-homeostasis/" class="project-item" style="text-decoration: none; color: inherit; display: block;">
+					<div class="project-item" style="position: relative;">
 						<h2 class="project-title">Elastic Homeostasis in Spiking Neural Networks</h2>
 						<p class="project-description">Can learning emerge from adaptive equilibrium points rather than synaptic weights? Testing a novel hypothesis where neurons maintain stable firing patterns but can shift to new equilibria under sustained perturbation. Implemented 100k neuron simulation using homeostatic Izhikevich model.</p>
 						<div class="project-technologies">
@@ -58,10 +62,14 @@
 							<span class="tech-tag">Computational Neuroscience</span>
 							<span class="tech-tag">Mixed Results</span>
 						</div>
-					</a>
+						<div class="project-links" style="position: relative; z-index: 2;">
+							<a href="elastic-homeostasis/">More Info</a>
+						</div>
+						<a href="elastic-homeostasis/" style="position: absolute; inset: 0; z-index: 1;" aria-label="View Elastic Homeostasis in Spiking Neural Networks project"></a>
+					</div>
 
 					<!-- Project 3: Minimal World Models -->
-					<a href="minimal-world-models/" class="project-item" style="text-decoration: none; color: inherit; display: block;">
+					<div class="project-item" style="position: relative;">
 						<h2 class="project-title">Minimal World Model Formation</h2>
 						<p class="project-description">Can an AI develop functional world understanding from a single temporal signal? Challenging the assumption that models need pre-structured data. Testing if world models can bootstrap from one value changing over time through predictive coding and continuous architectural plasticity.</p>
 						<div class="project-technologies">
@@ -69,7 +77,11 @@
 							<span class="tech-tag">AI Learning</span>
 							<span class="tech-tag">Simulation in Progress</span>
 						</div>
-					</a>
+						<div class="project-links" style="position: relative; z-index: 2;">
+							<a href="minimal-world-models/">More Info</a>
+						</div>
+						<a href="minimal-world-models/" style="position: absolute; inset: 0; z-index: 1;" aria-label="View Minimal World Model Formation project"></a>
+					</div>
 				</div>
 			</div>
 		</section>
